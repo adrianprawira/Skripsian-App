@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.upnvj.skripsian.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/thesisFragment"
+        android:name="com.upnvj.skripsian.ui.thesis.ThesisFragment"
+        android:label="@string/title_thesis"
+        tools:layout="@layout/fragment_thesis">
+        <action
+            android:id="@+id/action_thesisFragment_to_addThesisScheduleFragment"
+            app:destination="@id/addThesisScheduleFragment" />
+        <action
+            android:id="@+id/action_thesisFragment_to_listThesisFragment"
+            app:destination="@id/listThesisFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/lecturerFragment"
+        android:name="com.upnvj.skripsian.ui.lecturer.LecturerFragment"
+        android:label="@string/title_lecturer"
+        tools:layout="@layout/fragment_lecturer">
+        <action
+            android:id="@+id/action_lecturerFragment_to_addLecturerFragment"
+            app:destination="@id/addLecturerFragment" />
+        <action
+            android:id="@+id/action_lecturerFragment_to_detailLecturerFragment"
+            app:destination="@id/detailLecturerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addLecturerFragment"
+        android:name="com.upnvj.skripsian.ui.lecturer.add.AddLecturerFragment"
+        tools:layout="@layout/fragment_add_lecturer">
+        <argument
+            android:name="lecturerId"
+            android:defaultValue="0L"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/addThesisScheduleFragment"
+        android:name="com.upnvj.skripsian.ui.thesis.add.AddThesisScheduleFragment"
+        android:label="@string/title_add_thesis_schedule"
+        tools:layout="@layout/fragment_add_thesis_schedule">
+        <argument
+            android:name="scheduleId"
+            android:defaultValue="0L"
+            app:argType="long" />
+        <argument
+            android:name="dayDateTimestamp"
+            android:defaultValue="-1L"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailLecturerFragment"
+        android:name="com.upnvj.skripsian.ui.lecturer.detail.DetailLecturerFragment"
+        android:label="@string/title_lecturer"
+        tools:layout="@layout/fragment_detail_lecturer">
+        <argument
+            android:name="lecturerId"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_detailLecturerFragment_to_addLecturerFragment"
+            app:destination="@id/addLecturerFragment" />
+        <action
+            android:id="@+id/action_detailLecturerFragment_to_addLecturerScheduleFragment"
+            app:destination="@id/addLecturerScheduleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailThesisFragment"
+        android:name="com.upnvj.skripsian.ui.thesis.detail.DetailThesisFragment"
+        android:label="@string/title_detail_thesis_schedule"
+        tools:layout="@layout/fragment_detail_thesis">
+        <argument
+            android:name="scheduleId"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_detailThesisFragment_to_addThesisScheduleFragment"
+            app:destination="@id/addThesisScheduleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addLecturerScheduleFragment"
+        android:name="com.upnvj.skripsian.ui.lecturer.schedule.AddLecturerScheduleFragment"
+        android:label="@string/title_add_lecturer_schedule"
+        tools:layout="@layout/fragment_add_lecturer_schedule">
+        <argument
+            android:name="scheduleId"
+            android:defaultValue="0L"
+            app:argType="long" />
+        <argument
+            android:name="lecturerId"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/listThesisFragment"
+        android:name="com.upnvj.skripsian.ui.thesis.list.ListThesisFragment"
+        android:label="fragment_list_thesis"
+        tools:layout="@layout/fragment_list_thesis">
+        <argument
+            android:name="groupDateString"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_listThesisFragment_to_detailThesisFragment"
+            app:destination="@id/detailThesisFragment" />
+        <action
+            android:id="@+id/action_listThesisFragment_to_addThesisScheduleFragment"
+            app:destination="@id/addThesisScheduleFragment" />
+    </fragment>
+</navigation>

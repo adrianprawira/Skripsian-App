@@ -1,0 +1,128 @@
+<resources>
+
+    <style name="Widget.Skripsian.FragmentRoot.Home" parent="">
+        <item name="android:paddingBottom">?attr/actionBarSize</item>
+    </style>
+
+    <style name="Widget.Skripsian.FragmentRoot.Main" parent="">
+        <item name="android:paddingTop">?attr/actionBarSize</item>
+        <item name="android:paddingBottom">?attr/actionBarSize</item>
+    </style>
+
+    <style name="Widget.Skripsian.FragmentRoot.Common" parent="">
+        <item name="android:paddingTop">?attr/actionBarSize</item>
+    </style>
+
+    <style name="Widget.Skripsian.TopDestinationTitle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.Skripsian.Headline4</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+    </style>
+
+    <style name="Widget.Skripsian.BottomNavigation" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="enforceMaterialTheme">true</item>
+        <item name="elevation">4dp</item>
+        <item name="labelVisibilityMode">selected</item>
+        <item name="itemIconTint">@color/bottom_nav_item</item>
+        <item name="itemTextColor">@color/bottom_nav_item</item>
+    </style>
+
+    <style name="Widget.Skripsian.CardView" parent="Widget.MaterialComponents.CardView">
+        <item name="enforceMaterialTheme">true</item>
+        <item name="cardCornerRadius">8dp</item>
+        <item name="cardElevation">4dp</item>
+        <item name="cardBackgroundColor">@color/white</item>
+    </style>
+
+    <style name="Widget.Skripsian.CardView.Filter" parent="Widget.Skripsian.CardView" />
+
+    <style name="Widget.Skripsian.CardView.Filter.Checked" parent="Widget.Skripsian.CardView">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.Skripsian.CardView.CheckedFilter
+        </item>
+        <item name="cardBackgroundColor">@color/green_700</item>
+    </style>
+
+    <style name="Widget.Skripsian.Button" parent="Widget.MaterialComponents.Button">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.Skripsian.Button</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="elevation">6dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+    </style>
+
+    <style name="Widget.Skripsian.ExtendedFab.Save" parent="Widget.MaterialComponents.ExtendedFloatingActionButton">
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="elevation">4dp</item>
+        <item name="android:layout_margin">16dp</item>
+    </style>
+
+    <!--region Form Input-->
+    <style name="Widget.Skripsian.TextInput.Default" parent="">
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+        <item name="android:inputType">textCapWords</item>
+    </style>
+
+    <style name="Widget.Skripsian.TextInput.DropDownMenu" parent="">
+        <item name="android:gravity">bottom</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+    </style>
+
+    <style name="Widget.Skripsian.TextInputLayout.Default" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <!--        <item name="materialThemeOverlay">@style/ThemeOverlay.Skripsian.TextInputLayout</item>-->
+        <item name="colorPrimary">?attr/colorSecondary</item>
+        <item name="enforceMaterialTheme">true</item>
+        <item name="enforceTextAppearance">true</item>
+        <item name="boxBackgroundMode">none</item>
+        <item name="hintTextAppearance">@style/TextAppearance.Skripsian.Body2</item>
+    </style>
+
+    <style name="Widget.Skripsian.TextInputLayout.FilledBox" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <!--        <item name="materialThemeOverlay">@style/ThemeOverlay.Skripsian.TextInputLayout</item>-->
+        <item name="boxCornerRadiusTopStart">8dp</item>
+        <item name="boxCornerRadiusTopEnd">8dp</item>
+        <item name="boxBackgroundColor">?attr/colorSurface</item>
+    </style>
+
+    <style name="Widget.Skripsian.TextInputLayout.ExposedDropDownMenu" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">
+        <!--        <item name="materialThemeOverlay">@style/ThemeOverlay.Skripsian.TextInputLayout</item>-->
+        <item name="boxBackgroundColor">?attr/colorSurface</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="hintEnabled">false</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginStart">16dp</item>
+    </style>
+
+    <style name="Widget.Skripsian.TextInputIcon.Default" parent="">
+        <item name="drawableTint">?attr/colorOnSecondary</item>
+        <item name="android:background">@drawable/shape_round_rect</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+    </style>
+
+    <style name="Widget.Skripsian.TextInputDivider.Default" parent="">
+        <item name="android:background">@color/gray_100</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+    </style>
+    <!--endregion-->
+
+    <style name="Widget.Skripsian.Chip" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="chipCornerRadius">8dp</item>
+        <item name="chipStrokeColor">?attr/colorPrimary</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipBackgroundColor">?attr/colorSurface</item>
+        <item name="chipMinHeight">28sp</item>
+    </style>
+
+</resources>

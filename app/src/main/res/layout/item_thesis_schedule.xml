@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.upnvj.skripsian.data.model.ThesisScheduleWithLecturers" />
+
+        <variable
+            name="listener"
+            type="com.upnvj.skripsian.util.callback.OnItemClickListener" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_schedule"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="@{() -> listener.onClick(data)}"
+        app:cardBackgroundColor="@color/green_50">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="@{data.schedule.fullName}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:textColor="@color/green_700"
+                android:textSize="18sp"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Adrian Prawira" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{data.schedule.thesisTitle}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                app:layout_constraintEnd_toEndOf="@id/text_name"
+                app:layout_constraintStart_toStartOf="@id/text_name"
+                app:layout_constraintTop_toBottomOf="@id/text_name"
+                tools:text="Adrian Prawira" />
+
+            <ImageView
+                android:id="@+id/image_prodi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/shape_round_rect"
+                android:contentDescription="@null"
+                android:padding="8dp"
+                android:src="@drawable/ic_study_program_black_16dp"
+                android:tint="@color/white"
+                app:layout_constraintStart_toStartOf="@id/text_name"
+                app:layout_constraintTop_toBottomOf="@id/text_title" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/hint_prodi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/plain_study_program"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                app:layout_constraintEnd_toEndOf="@id/text_name"
+                app:layout_constraintStart_toEndOf="@id/image_prodi"
+                app:layout_constraintTop_toTopOf="@id/image_prodi" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_prodi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{data.schedule.studyProgram}"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="@color/gray_600"
+                app:layout_constraintEnd_toEndOf="@id/hint_prodi"
+                app:layout_constraintStart_toStartOf="@id/hint_prodi"
+                app:layout_constraintTop_toBottomOf="@id/hint_prodi"
+                tools:text="Teknik Informatika" />
+
+            <ImageView
+                android:id="@+id/image_nim"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/shape_round_rect"
+                android:contentDescription="@null"
+                android:padding="8dp"
+                android:src="@drawable/ic_assessment_black_16dp"
+                android:tint="@color/white"
+                app:layout_constraintStart_toStartOf="@id/text_name"
+                app:layout_constraintTop_toBottomOf="@id/text_prodi" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/hint_nim"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/plain_nim"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                app:layout_constraintEnd_toEndOf="@id/text_name"
+                app:layout_constraintStart_toEndOf="@id/image_nim"
+                app:layout_constraintTop_toTopOf="@id/image_nim" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_nim"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{data.schedule.nim}"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="@color/gray_600"
+                app:layout_constraintEnd_toEndOf="@id/hint_nim"
+                app:layout_constraintStart_toStartOf="@id/hint_nim"
+                app:layout_constraintTop_toBottomOf="@id/hint_nim"
+                tools:text="Teknik Informatika" />
+
+            <ImageView
+                android:id="@+id/image_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/shape_round_rect"
+                android:contentDescription="@null"
+                android:padding="8dp"
+                android:src="@drawable/ic_call_black_16dp"
+                android:tint="@color/white"
+                app:layout_constraintStart_toStartOf="@id/text_name"
+                app:layout_constraintTop_toBottomOf="@id/text_nim" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/hint_phone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/plain_phone_number"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                app:layout_constraintEnd_toEndOf="@id/text_name"
+                app:layout_constraintStart_toEndOf="@id/image_phone"
+                app:layout_constraintTop_toTopOf="@id/image_phone" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_phone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{data.schedule.phoneNumber}"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="@color/gray_600"
+                app:layout_constraintEnd_toEndOf="@id/hint_phone"
+                app:layout_constraintStart_toStartOf="@id/hint_phone"
+                app:layout_constraintTop_toBottomOf="@id/hint_phone"
+                tools:text="Teknik Informatika" />
+
+            <ImageView
+                android:id="@+id/image_supervisor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/shape_round_rect"
+                android:contentDescription="@null"
+                android:padding="8dp"
+                android:src="@drawable/ic_school_black_16dp"
+                android:tint="@color/white"
+                app:layout_constraintStart_toStartOf="@id/text_name"
+                app:layout_constraintTop_toBottomOf="@id/text_phone" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/hint_supervisor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/plain_lecturer_supervisor"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                app:layout_constraintEnd_toEndOf="@id/text_name"
+                app:layout_constraintStart_toEndOf="@id/image_supervisor"
+                app:layout_constraintTop_toTopOf="@id/image_supervisor" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_supervisor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{data.supervisor.fullName}"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="@color/gray_600"
+                app:layout_constraintEnd_toEndOf="@id/hint_supervisor"
+                app:layout_constraintStart_toStartOf="@id/hint_supervisor"
+                app:layout_constraintTop_toBottomOf="@id/hint_supervisor"
+                tools:text="Teknik Informatika" />
+
+            <ImageView
+                android:id="@+id/image_examiner_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/shape_round_rect"
+                android:contentDescription="@null"
+                android:padding="8dp"
+                android:src="@drawable/ic_school_black_16dp"
+                android:tint="@color/white"
+                app:layout_constraintStart_toStartOf="@id/text_name"
+                app:layout_constraintTop_toBottomOf="@id/text_supervisor" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/hint_examiner_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/plain_lecturer_examiner_1"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                app:layout_constraintEnd_toEndOf="@id/text_name"
+                app:layout_constraintStart_toEndOf="@id/image_examiner_1"
+                app:layout_constraintTop_toTopOf="@id/image_examiner_1" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_examiner_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{data.examiner1.fullName}"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="@color/gray_600"
+                app:layout_constraintEnd_toEndOf="@id/hint_examiner_1"
+                app:layout_constraintStart_toStartOf="@id/hint_examiner_1"
+                app:layout_constraintTop_toBottomOf="@id/hint_examiner_1"
+                tools:text="Teknik Informatika" />
+
+            <ImageView
+                android:id="@+id/image_examiner_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/shape_round_rect"
+                android:contentDescription="@null"
+                android:padding="8dp"
+                android:src="@drawable/ic_school_black_16dp"
+                android:tint="@color/white"
+                app:layout_constraintStart_toStartOf="@id/text_name"
+                app:layout_constraintTop_toBottomOf="@id/text_examiner_1" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/hint_examiner_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/plain_lecturer_examiner_2"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                app:layout_constraintEnd_toEndOf="@id/text_name"
+                app:layout_constraintStart_toEndOf="@id/image_examiner_2"
+                app:layout_constraintTop_toTopOf="@id/image_examiner_2" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="@{data.examiner2.fullName}"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="@color/gray_600"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/hint_examiner_2"
+                app:layout_constraintStart_toStartOf="@id/hint_examiner_2"
+                app:layout_constraintTop_toBottomOf="@id/hint_examiner_2"
+                tools:text="Teknik Informatika" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

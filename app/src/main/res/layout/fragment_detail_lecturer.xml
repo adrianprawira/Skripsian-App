@@ -1,0 +1,367 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.upnvj.skripsian.ui.lecturer.detail.DetailLecturerViewData.ScheduleFilter" />
+
+        <variable
+            name="lecturer"
+            type="com.upnvj.skripsian.data.model.Lecturer" />
+
+        <variable
+            name="data"
+            type="com.upnvj.skripsian.ui.lecturer.detail.DetailLecturerViewData" />
+
+        <variable
+            name="view"
+            type="com.upnvj.skripsian.ui.lecturer.detail.DetailLecturerFragment" />
+
+        <variable
+            name="viewModel"
+            type="com.upnvj.skripsian.ui.lecturer.detail.DetailLecturerViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/Widget.Skripsian.FragmentRoot.Common"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.upnvj.skripsian.ui.lecturer.detail.DetailLecturerFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/shape_round_rect"
+                android:backgroundTint="@color/green_400"
+                android:contentDescription="@null"
+                android:padding="16dp"
+                android:src="@drawable/ic_school_black_48dp"
+                android:tint="?attr/colorOnSecondary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@{lecturer.fullName}"
+                android:textAppearance="@style/TextAppearance.Skripsian.Headline6"
+                app:layout_constraintBottom_toTopOf="@id/nip"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/image"
+                app:layout_constraintTop_toTopOf="@id/image"
+                tools:text="Adrian Prawira" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/program"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{lecturer.studyProgram}"
+                android:textAppearance="@style/TextAppearance.Skripsian.Body2"
+                app:layout_constraintBottom_toBottomOf="@id/image"
+                app:layout_constraintEnd_toEndOf="@id/name"
+                app:layout_constraintStart_toStartOf="@id/name"
+                tools:text="Teknik Informatika" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/nip"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{lecturer.nip}"
+                android:textAppearance="@style/TextAppearance.Skripsian.Body2"
+                app:layout_constraintBottom_toTopOf="@id/program"
+                app:layout_constraintEnd_toEndOf="@id/name"
+                app:layout_constraintStart_toStartOf="@id/name"
+                tools:text="150535604882" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_monday"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="6dp"
+            android:onClick="@{() -> viewModel.setScheduleFilter(ScheduleFilter.DAY_1)}"
+            app:cardBackgroundColor="@{viewModel.scheduleFilter == ScheduleFilter.DAY_1? @color/green_400 : @color/white}"
+            app:layout_constraintEnd_toStartOf="@id/card_tuesday"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/container_profile">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{data.countScheduleMonday}"
+                    android:textAppearance="@style/TextAppearance.Skripsian.Subtitle1"
+                    android:textColor="@{viewModel.scheduleFilter == ScheduleFilter.DAY_1? @color/white : @color/gray_900}"
+                    android:textStyle="bold"
+                    tools:text="-" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@string/plain_monday"
+                    android:textAppearance="@style/TextAppearance.Skripsian.Caption"
+                    android:textColor="@{viewModel.scheduleFilter == ScheduleFilter.DAY_1? @color/white : @color/gray_600}" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_tuesday"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:onClick="@{() -> viewModel.setScheduleFilter(ScheduleFilter.DAY_2)}"
+            app:cardBackgroundColor="@{viewModel.scheduleFilter == ScheduleFilter.DAY_2? @color/green_400 : @color/white}"
+            app:layout_constraintEnd_toStartOf="@id/card_wednesday"
+            app:layout_constraintStart_toEndOf="@id/card_monday"
+            app:layout_constraintTop_toTopOf="@id/card_monday">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{data.countScheduleTuesday}"
+                    android:textAppearance="@style/TextAppearance.Skripsian.Subtitle1"
+                    android:textColor="@{viewModel.scheduleFilter == ScheduleFilter.DAY_2? @color/white : @color/gray_900}"
+                    android:textStyle="bold"
+                    tools:text="25" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@string/plain_tuesday"
+                    android:textAppearance="@style/TextAppearance.Skripsian.Caption"
+                    android:textColor="@{viewModel.scheduleFilter == ScheduleFilter.DAY_2? @color/white : @color/gray_600}" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_wednesday"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:onClick="@{() -> viewModel.setScheduleFilter(ScheduleFilter.DAY_3)}"
+            app:cardBackgroundColor="@{viewModel.scheduleFilter == ScheduleFilter.DAY_3? @color/green_400 : @color/white}"
+            app:layout_constraintEnd_toStartOf="@id/card_thursday"
+            app:layout_constraintStart_toEndOf="@id/card_tuesday"
+            app:layout_constraintTop_toTopOf="@id/card_monday">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{data.countScheduleWednesday}"
+                    android:textAppearance="@style/TextAppearance.Skripsian.Subtitle1"
+                    android:textColor="@{viewModel.scheduleFilter == ScheduleFilter.DAY_3? @color/white : @color/gray_900}"
+                    android:textStyle="bold"
+                    tools:text="25" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@string/plain_wednesday"
+                    android:textAppearance="@style/TextAppearance.Skripsian.Caption"
+                    android:textColor="@{viewModel.scheduleFilter == ScheduleFilter.DAY_3? @color/white : @color/gray_600}" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_thursday"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:onClick="@{() -> viewModel.setScheduleFilter(ScheduleFilter.DAY_4)}"
+            app:cardBackgroundColor="@{viewModel.scheduleFilter == ScheduleFilter.DAY_4? @color/green_400 : @color/white}"
+            app:layout_constraintEnd_toStartOf="@id/card_friday"
+            app:layout_constraintStart_toEndOf="@id/card_wednesday"
+            app:layout_constraintTop_toTopOf="@id/card_monday">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{data.countScheduleThursday}"
+                    android:textAppearance="@style/TextAppearance.Skripsian.Subtitle1"
+                    android:textColor="@{viewModel.scheduleFilter == ScheduleFilter.DAY_4? @color/white : @color/gray_900}"
+                    android:textStyle="bold"
+                    tools:text="25" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@string/plain_thursday"
+                    android:textAppearance="@style/TextAppearance.Skripsian.Caption"
+                    android:textColor="@{viewModel.scheduleFilter == ScheduleFilter.DAY_4? @color/white : @color/gray_600}" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_friday"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="16dp"
+            android:onClick="@{() -> viewModel.setScheduleFilter(ScheduleFilter.DAY_5)}"
+            app:cardBackgroundColor="@{viewModel.scheduleFilter == ScheduleFilter.DAY_5? @color/green_400 : @color/white}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/card_thursday"
+            app:layout_constraintTop_toTopOf="@id/card_monday">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{data.countScheduleFriday}"
+                    android:textAppearance="@style/TextAppearance.Skripsian.Subtitle1"
+                    android:textColor="@{viewModel.scheduleFilter == ScheduleFilter.DAY_5? @color/white : @color/gray_900}"
+                    android:textStyle="bold"
+                    tools:text="25" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@string/plain_friday"
+                    android:textAppearance="@style/TextAppearance.Skripsian.Caption"
+                    android:textColor="@{viewModel.scheduleFilter == ScheduleFilter.DAY_5? @color/white : @color/gray_600}" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.32" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="@string/plain_time_of"
+            app:layout_constraintEnd_toEndOf="@id/guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_monday" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_schedule"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:paddingStart="32dp"
+            android:paddingEnd="0dp"
+            android:text="@string/plain_lesson_schedule"
+            app:layout_constraintBottom_toBottomOf="@id/text_time"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            app:layout_constraintTop_toTopOf="@id/text_time" />
+
+        <LinearLayout
+            android:id="@+id/msg_empty"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_time">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/msg_lecturer_schedule_empty"
+                android:textAppearance="@style/TextAppearance.Skripsian.Body2"
+                android:textColor="@color/gray_600"
+                android:textStyle="bold|italic" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_schedules"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            android:clipToPadding="false"
+            android:paddingBottom="96dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_time"
+            tools:listitem="@layout/item_lecturer_schedule" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:onClick="@{() -> view.showAddLecturerSchedulePage()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_add_black_24dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

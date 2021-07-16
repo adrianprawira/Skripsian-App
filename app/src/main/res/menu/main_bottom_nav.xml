@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_home" />
+    <item
+        android:id="@+id/lecturerFragment"
+        android:icon="@drawable/ic_school_black_24dp"
+        android:title="@string/title_lecturer" />
+    <item
+        android:id="@+id/thesisFragment"
+        android:icon="@drawable/ic_assignment_black_24dp"
+        android:title="@string/title_thesis" />
+</menu>

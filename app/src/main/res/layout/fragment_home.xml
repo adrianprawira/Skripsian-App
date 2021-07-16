@@ -1,0 +1,195 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="lecturerCount"
+            type="String" />
+
+        <variable
+            name="totalSchedule"
+            type="String" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/Widget.Skripsian.FragmentRoot.Home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context="com.upnvj.skripsian.ui.home.HomeFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/container_landing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorSecondary"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/img_logo_upn_96dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:gravity="center"
+                    android:text="@string/plain_welcome"
+                    android:textAppearance="@style/TextAppearance.Skripsian.Headline5"
+                    android:textColor="?attr/colorOnSecondary"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="@string/app_description"
+                    android:textAppearance="@style/TextAppearance.Skripsian.Subtitle1"
+                    android:textColor="?attr/colorOnSecondary" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="?android:attr/colorBackground"
+                app:layout_constraintBottom_toTopOf="@id/card_schedule"
+                app:layout_constraintTop_toBottomOf="@id/container_landing" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_statistic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:layout_constraintTop_toBottomOf="@id/container_landing">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/title_lecturer"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center"
+                        android:text="@string/plain_total_lecturer"
+                        android:textAppearance="@style/TextAppearance.Skripsian.Subtitle1"
+                        app:layout_constraintEnd_toStartOf="@id/title_schedule"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/title_schedule"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/plain_total_schedule"
+                        android:textAppearance="@style/TextAppearance.Skripsian.Subtitle1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/title_lecturer"
+                        app:layout_constraintTop_toTopOf="@id/title_lecturer" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="8dp"
+                        android:gravity="center"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="16dp"
+                        android:text="@{lecturerCount}"
+                        android:textAppearance="@style/TextAppearance.Skripsian.Headline5"
+                        app:drawableEndCompat="@drawable/ic_school_black_24dp"
+                        app:drawableTint="?attr/colorSecondary"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/title_lecturer"
+                        app:layout_constraintStart_toStartOf="@id/title_lecturer"
+                        app:layout_constraintTop_toBottomOf="@id/title_lecturer"
+                        tools:text="-" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="8dp"
+                        android:gravity="center"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="16dp"
+                        android:text="@{totalSchedule}"
+                        android:textAppearance="@style/TextAppearance.Skripsian.Headline5"
+                        app:drawableEndCompat="@drawable/ic_assignment_black_24dp"
+                        app:drawableTint="?attr/colorSecondary"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/title_schedule"
+                        app:layout_constraintStart_toStartOf="@id/title_schedule"
+                        app:layout_constraintTop_toBottomOf="@id/title_schedule"
+                        tools:text="-" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_schedule"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardElevation="0dp"
+                app:layout_constraintTop_toBottomOf="@id/card_statistic">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/title_today_schedule"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        android:text="@string/plain_today_schedule"
+                        android:textAppearance="@style/TextAppearance.Skripsian.Subtitle1"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <LinearLayout
+                        android:id="@+id/msg_empty"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        app:layout_constraintTop_toBottomOf="@id/title_today_schedule">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/msg_today_schedule_empty"
+                            android:textAppearance="@style/TextAppearance.Skripsian.Body2"
+                            android:textColor="@color/gray_600"
+                            android:textStyle="bold|italic" />
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/list_today_schedule"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipToPadding="false"
+                        android:paddingBottom="16dp"
+                        android:visibility="gone"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintTop_toBottomOf="@id/title_today_schedule"
+                        tools:listitem="@layout/item_home_today_schedule" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

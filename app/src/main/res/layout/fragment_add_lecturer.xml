@@ -1,0 +1,167 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewState"
+            type="com.upnvj.skripsian.ui.lecturer.add.AddLecturerViewState" />
+
+        <variable
+            name="viewModel"
+            type="com.upnvj.skripsian.ui.lecturer.add.AddLecturerViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/Widget.Skripsian.FragmentRoot.Common"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:theme="@style/Skripsian.Blue"
+        tools:context="com.upnvj.skripsian.ui.lecturer.add.AddLecturerFragment">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="24dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingBottom="96dp"
+                android:scrollbars="none">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/input_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:hint="@string/plain_full_name"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/image_name"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            style="@style/Widget.Skripsian.TextInput.Default"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@={viewModel.fullName}"
+                            tools:text="Adrian Prawira, S.Kom." />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/image_name"
+                        style="@style/Widget.Skripsian.TextInputIcon.Default"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:enabled="@{viewState.nameFilled}"
+                        app:drawableStartCompat="@drawable/ic_school_black_24dp"
+                        app:layout_constraintBottom_toBottomOf="@id/input_name"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/input_name" />
+
+                    <View
+                        android:id="@+id/divider_name"
+                        style="@style/Widget.Skripsian.TextInputDivider.Default"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/input_name" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/input_nip"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:hint="@string/plain_nip"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/image_nip"
+                        app:layout_constraintTop_toBottomOf="@id/divider_name">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            style="@style/Widget.Skripsian.TextInput.Default"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:text="@={viewModel.nip}"
+                            tools:text="2020052012345" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/image_nip"
+                        style="@style/Widget.Skripsian.TextInputIcon.Default"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:enabled="@{viewState.nipFilled}"
+                        app:drawableStartCompat="@drawable/ic_assessment_black_24dp"
+                        app:layout_constraintBottom_toBottomOf="@id/input_nip"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/input_nip" />
+
+                    <View
+                        android:id="@+id/divider_nip"
+                        style="@style/Widget.Skripsian.TextInputDivider.Default"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/input_nip" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/input_study_program"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:hint="@string/plain_study_program"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/image_study_program"
+                        app:layout_constraintTop_toBottomOf="@id/divider_nip">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            style="@style/Widget.Skripsian.TextInput.Default"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@={viewModel.studyProgram}"
+                            tools:text="Teknik Informatika"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/image_study_program"
+                        style="@style/Widget.Skripsian.TextInputIcon.Default"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:enabled="@{viewState.studyProgramFilled}"
+                        app:drawableStartCompat="@drawable/ic_study_program_black_24dp"
+                        app:layout_constraintBottom_toBottomOf="@id/input_study_program"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/input_study_program" />
+
+                    <View
+                        android:id="@+id/divider_study_program"
+                        style="@style/Widget.Skripsian.TextInputDivider.Default"
+                        android:layout_marginBottom="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/input_study_program" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            style="@style/Widget.Skripsian.ExtendedFab.Save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> viewModel.saveLecturer()}"
+            android:text="@string/action_save_lecturer"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

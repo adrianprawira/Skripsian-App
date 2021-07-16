@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Skripsian" parent="Base.Skripsian" />
+
+    <style name="Skripsian.Splash">
+        <item name="android:windowBackground">@drawable/bg_splash_screen</item>
+    </style>
+
+    <style name="Skripsian.Blue">
+        <item name="colorPrimary">@color/green_700</item>
+    </style>
+
+    <style name="Skripsian.DatePickerDialog" parent="Theme.MaterialComponents.Dialog">
+        <item name="colorPrimary">@color/green_700</item>
+    </style>
+
+    <style name="Base.Skripsian" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryVariant">@color/green_700</item>
+        <item name="colorSecondary">@color/green_700</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorOnPrimary">?attr/colorSecondary</item>
+        <!--        <item name="colorOnSurface">@color/gray_900</item>-->
+        <!--        <item name="colorOnBackground">@color/white</item>-->
+        <item name="android:colorBackground">@color/white_background</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+
+        <!--Widget styles-->
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.Skripsian.Dialog</item>
+        <item name="bottomNavigationStyle">@style/Widget.Skripsian.BottomNavigation</item>
+        <!--        <item name="cardViewStyle">@style/Widget.Skripsian.CardView</item>-->
+        <item name="materialCardViewStyle">@style/Widget.Skripsian.CardView</item>
+        <!--        <item name="buttonStyle">@style/Widget.Skripsian.Button</item>-->
+        <!--        <item name="materialButtonStyle">@style/Widget.Skripsian.Button</item>-->
+        <item name="textInputStyle">@style/Widget.Skripsian.TextInputLayout.Default</item>
+        <!--        <item name="chipStyle">@style/Widget.Skripsian.Chip</item>-->
+    </style>
+
+    <style name="ThemeOverlay.Skripsian.AppBar" parent="ThemeOverlay.MaterialComponents.Light" />
+
+    <style name="ThemeOverlay.Skripsian.Popup" parent="ThemeOverlay.MaterialComponents.Dark" />
+
+    <style name="ThemeOverlay.Skripsian.Dialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="colorPrimary">@color/green_700</item>
+        <item name="colorSecondary">@color/green_700</item>
+    </style>
+
+    <style name="ThemeOverlay.Skripsian.Calendar" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
+        <item name="colorPrimary">@color/green_700</item>
+        <item name="colorSecondary">@color/green_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnSecondary">@color/white</item>
+    </style>
+
+    <style name="ThemeOverlay.Skripsian.BottomNav" parent="">
+        <item name="colorPrimary">@color/green_700</item>
+        <item name="colorOnPrimary">@color/gray_300</item>
+    </style>
+
+    <style name="ThemeOverlay.Skripsian.TextInputLayout" parent="">
+        <item name="colorPrimary">@color/green_700</item>
+        <item name="colorSecondary">@color/green_700</item>
+    </style>
+
+    <style name="ThemeOverlay.Skripsian.CardView.CheckedFilter" parent="ThemeOverlay.MaterialComponents.Dark" />
+
+    <style name="ThemeOverlay.Skripsian.Button" parent="">
+        <!--        <item name="colorPrimary">?attr/colorSecondary</item>-->
+        <!--        <item name="colorOnPrimary">?attr/colorOnSecondary</item>-->
+    </style>
+
+</resources>
